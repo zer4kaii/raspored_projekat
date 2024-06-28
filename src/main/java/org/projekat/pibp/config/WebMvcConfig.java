@@ -13,4 +13,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new UserInterceptor())
                 .addPathPatterns("/user/**");// Apply the interceptor to URLs starting with /admin
     }
+
 }

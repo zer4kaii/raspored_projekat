@@ -6,31 +6,28 @@ import jakarta.servlet.http.HttpSession;
 import org.projekat.pibp.dto.LoginDto;
 import org.projekat.pibp.model.Korisnik;
 import org.projekat.pibp.repository.KorisnikRepository;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
-@Controller
+@RestController
 public class LoginController {
 
     @Resource
     private KorisnikRepository korisnikRepository;
 
 
-    @RequestMapping(value = {"/home", "/index"}, method = RequestMethod.GET)
+    @GetMapping("/home")
     public String index(Model m) {
         m.addAttribute("loginDto", new LoginDto());
         return "home"; //JSP - /WEB-INF/view/home.jsp
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
     public String handleLogin(@ModelAttribute("loginDto") LoginDto loginDto, Model m, HttpSession session) {
         try {
-            Korisnik user = korisnikRepository.findByKorisnickoIme(loginDto.getKorisnicko_ime());
+            Korisnik user = korisnikRepository.findByKorisnickoIme(loginDto.getKorisnickoIme());
 
             if (!user.getSifra().equals(loginDto.getSifra())) {
                 throw new RuntimeException("Password mismatch.");
@@ -54,7 +51,7 @@ public class LoginController {
 
     }
 
-    @RequestMapping(value = "/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:home";
