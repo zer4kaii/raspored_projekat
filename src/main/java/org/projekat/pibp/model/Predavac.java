@@ -1,28 +1,49 @@
 package org.projekat.pibp.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name="PREDAVACI")
+@Table(name = "predavaci")
+@Data
+@NoArgsConstructor
 public class Predavac {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "korisnik_id", referencedColumnName = "id")
-    private Korisnik korisnik;
+        @Id
+        @Column(name="id_predavaca")
+        private Long id;
 
-    private String titula;
+        @Column(name="ime", nullable = false)
+        private String ime;
 
-    // Ostala polja specifična za predavača
+        @Column(name="prezime", nullable = false)
+        private String prezime;
 
-    // Getters and setters, constructors...
+        @Column(name="titula", nullable = false)
+        private String titula;
+
+        @Column(name="korisnicko_ime", unique = true, nullable = false)
+        private String korisnickoIme;
+
+        @Column(name="sifra", nullable = false)
+        private String sifra;
+
+        @Column(name="email")
+        private String email;
+
+        @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+        @JoinTable(name = "predavac_uloge", joinColumns = @JoinColumn(name="predavac_id", referencedColumnName = "id_predavaca"),
+                inverseJoinColumns = @JoinColumn(name = "uloga_id", referencedColumnName = "id"))
+        private List<Uloga> uloge = new ArrayList<>();
+
 
 }

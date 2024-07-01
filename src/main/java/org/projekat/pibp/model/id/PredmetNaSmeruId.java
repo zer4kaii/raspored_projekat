@@ -1,6 +1,6 @@
 package org.projekat.pibp.model.id;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serializable;

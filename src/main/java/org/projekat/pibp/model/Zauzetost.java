@@ -1,8 +1,8 @@
 package org.projekat.pibp.model;
 
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.projekat.pibp.model.id.ZauzetostId;

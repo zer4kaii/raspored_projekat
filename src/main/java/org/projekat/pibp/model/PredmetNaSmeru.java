@@ -1,6 +1,6 @@
 package org.projekat.pibp.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.projekat.pibp.model.id.PredmetNaSmeruId;

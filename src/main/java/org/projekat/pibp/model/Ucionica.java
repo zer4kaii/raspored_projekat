@@ -1,12 +1,12 @@
 package org.projekat.pibp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +19,7 @@ public class Ucionica {
     @Column(name="broj")
     private Integer broj;
 
-    @Column(name="tip", nullable=false, length=30)
+    @Column(name="naziv", nullable=false, length=30)
     @Size(max = 30)
     @NotBlank(message="Tip učionice ne sme biti prazan")
     private String naziv;

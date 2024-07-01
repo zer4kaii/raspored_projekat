@@ -2,7 +2,7 @@ package org.projekat.pibp.model.id;
 
 
 
-import jakarta.persistence.Embeddable;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;

@@ -1,8 +1,8 @@
 package org.projekat.pibp.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +28,10 @@ public class Aktivnost {
     @NotBlank(message = "Tip aktivnosti ne sme biti prazan")
     @Column(name = "tip_aktivnosti", nullable = false, length = 60)
     private String tipAktivnosti;
+
+    @NotNull(message = "Mora se definisati broj studenata")
+    @Column(name = "broj_studenata", nullable = false)
+    private Long broj_studenata;
 
     @NotBlank(message = "Naziv ne sme biti prazan")
     @Column(name = "naziv", nullable = false, length = 60)
