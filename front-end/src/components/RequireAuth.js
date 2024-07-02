@@ -6,10 +6,7 @@ const RequireAuth = ({ allowedRoles }) => {
     const { auth } = useAuth();
     const location = useLocation();
 
-    useEffect(()=>{
-        console.log(auth?.korisnicko_ime);
-        console.log("Dozvoljeni " + allowedRoles)
-    },[])
+    
 
     return (
         auth?.roles?.find(role => {
