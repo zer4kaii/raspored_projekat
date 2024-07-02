@@ -1,11 +1,13 @@
 package org.projekat.pibp.controller;
 
+import org.projekat.pibp.dto.AuthResponseDTO;
 import org.projekat.pibp.dto.LoginDto;
 import org.projekat.pibp.dto.RegisterDto;
 import org.projekat.pibp.model.Predavac;
 import org.projekat.pibp.model.Uloga;
 import org.projekat.pibp.repository.PredavacRepository;
 import org.projekat.pibp.repository.UlogaRepository;
+import org.projekat.pibp.security.JWTGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +30,15 @@ public class AuthController {
     private PredavacRepository predavacRepository;
     private UlogaRepository ulogaRepository;
     private PasswordEncoder passwordEncoder;
+    private JWTGenerator tokenGenerator;
 
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, PredavacRepository predavacRepository, UlogaRepository ulogaRepository, PasswordEncoder passwordEncoder) {
+    public AuthController(AuthenticationManager authenticationManager, PredavacRepository predavacRepository, UlogaRepository ulogaRepository, PasswordEncoder passwordEncoder, JWTGenerator tokenGenerator) {
         this.authenticationManager = authenticationManager;
         this.predavacRepository = predavacRepository;
         this.ulogaRepository = ulogaRepository;
         this.passwordEncoder = passwordEncoder;
+        this.tokenGenerator = tokenGenerator;
     }
 
     @PostMapping("/register")
@@ -59,9 +63,10 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getKorisnicko_ime(), loginDto.getSifra()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ResponseEntity<>("Uspesno ulogovan predavac!", HttpStatus.OK);
+        String token = tokenGenerator.generateToken(authentication);
+        return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
     }
 }
