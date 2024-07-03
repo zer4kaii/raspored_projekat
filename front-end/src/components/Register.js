@@ -6,11 +6,20 @@ import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const REGISTER_URL = '/auth/register';
 
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
+
+    const [idPredavaca, setIdPredavaca] = useState('');
+    const [ime, setIme] = useState('');
+    const [prezime, setPrezime] = useState('');
+    const [titula, setTitula] = useState('');
+    const [email, setEmail] = useState('');
+    const [validEmail, setValidEmail] = useState(false);
+    const [emailFocus, setEmailFocus] = useState(false);
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -41,31 +50,37 @@ const Register = () => {
     }, [pwd, matchPwd])
 
     useEffect(() => {
+        setValidEmail(EMAIL_REGEX.test(email));
+    }, [email])
+
+    useEffect(() => {
         setErrMsg('');
-    }, [user, pwd, matchPwd])
+    }, [user, pwd, matchPwd, email])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
-        if (!v1 || !v2) {
+        const v3 = EMAIL_REGEX.test(email);
+        if (!v1 || !v2 || !v3) {
             setErrMsg("Invalid Entry");
             return;
         }
         try {
             const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ user, pwd }),
+                JSON.stringify({ id_predavaca: idPredavaca, ime, prezime, titula, korisnicko_ime: user, sifra: pwd, email }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
-            // TODO: remove console.logs before deployment
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
+            setIdPredavaca('');
+            setIme('');
+            setPrezime('');
+            setTitula('');
+            setEmail('');
             setUser('');
             setPwd('');
             setMatchPwd('');
@@ -95,6 +110,63 @@ const Register = () => {
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
                     <form onSubmit={handleSubmit}>
+                        <label htmlFor="idPredavaca">ID Predavaca:</label>
+                        <input
+                            type="text"
+                            id="idPredavaca"
+                            onChange={(e) => setIdPredavaca(e.target.value)}
+                            value={idPredavaca}
+                            required
+                        />
+
+                        <label htmlFor="ime">Ime:</label>
+                        <input
+                            type="text"
+                            id="ime"
+                            onChange={(e) => setIme(e.target.value)}
+                            value={ime}
+                            required
+                        />
+
+                        <label htmlFor="prezime">Prezime:</label>
+                        <input
+                            type="text"
+                            id="prezime"
+                            onChange={(e) => setPrezime(e.target.value)}
+                            value={prezime}
+                            required
+                        />
+
+                        <label htmlFor="titula">Titula:</label>
+                        <input
+                            type="text"
+                            id="titula"
+                            onChange={(e) => setTitula(e.target.value)}
+                            value={titula}
+                            required
+                        />
+
+                        <label htmlFor="email">
+                            Email:
+                            <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            required
+                            aria-invalid={validEmail ? "false" : "true"}
+                            aria-describedby="emailnote"
+                            onFocus={() => setEmailFocus(true)}
+                            onBlur={() => setEmailFocus(false)}
+                        />
+                        <p id="emailnote" className={emailFocus && !validEmail ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            Must be a valid email address.
+                        </p>
+
                         <label htmlFor="username">
                             Username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
@@ -120,7 +192,6 @@ const Register = () => {
                             Letters, numbers, underscores, hyphens allowed.
                         </p>
 
-
                         <label htmlFor="password">
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
@@ -144,7 +215,6 @@ const Register = () => {
                             Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
 
-
                         <label htmlFor="confirm_pwd">
                             Confirm Password:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
@@ -166,12 +236,12 @@ const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                        <button disabled={!validName || !validPwd || !validMatch || !validEmail ? true : false}>Sign Up</button>
                     </form>
                     <p>
                         Already registered?<br />
                         <span className="line">
-                            <Link to="/">Sign In</Link>
+                            <Link to="/login">Sign In</Link>
                         </span>
                     </p>
                 </section>
@@ -180,4 +250,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Register;
