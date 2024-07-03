@@ -120,3 +120,13 @@ button {
     justify-content: flex-start;
     align-items: flex-end;
 }
+
+
+table, th, td {
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+
+th,td {
+    padding: 0.25rem;
+}

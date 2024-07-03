@@ -19,9 +19,17 @@ const Home = () => {
             <br />
             <p>You are logged in!</p>
             <br />
-            <Link to="/admin">Go to the Admin page</Link>
+            <Link to="/admin">Idite na admin stranicu</Link>
             <br />
-            <Link to="/linkpage">Go to the link page</Link>
+            <Link to="/linkpage">Idite na stranicu sa linkovima</Link>
+            <br />
+            <Link to="/sve-ucionice">Sve ucionice</Link>
+            <br />
+            <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
+            <br />
+            <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
+            <br />
+            <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
             <div className="flexGrow">
                 <button onClick={logout}>Sign Out</button>
             </div>

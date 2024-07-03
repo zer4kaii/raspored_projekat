@@ -8,6 +8,10 @@ import Unauthorized from './components/Unauthorized';
 import LinkPage from './components/LinkPage';
 import RequireAuth from './components/RequireAuth';
 import { Routes, Route } from 'react-router-dom';
+import SveUcionice from './pages/SveUcionice';
+import TrazenjePoTerminu from './pages/TrazenjePoTerminu';
+import TrazenjePoUcionici from './pages/TrazenjePoUcionici';
+import MojeAktivnosti from './pages/MojeAktivnosti';
 
 const ROLES = {
   'User': "USER",
@@ -28,6 +32,10 @@ function App() {
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Admin]} />}>
           <Route path="/" element={<Home />} />
+          <Route path="/sve-ucionice" element={<SveUcionice />} />
+          <Route path="/trazenje-po-terminu" element={<TrazenjePoTerminu />} />
+          <Route path="/trazenje-po-ucionici" element={<TrazenjePoUcionici />} />
+          <Route path="/moje-aktivnosti" element={<MojeAktivnosti />} />
         </Route>
 
 
