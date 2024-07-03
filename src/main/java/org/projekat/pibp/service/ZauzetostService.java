@@ -29,4 +29,5 @@ public class ZauzetostService {
     public Zauzetost dobaviZauzetostPoId(ZauzetostId id) {
         return zauzetostRepository.findById(id).orElse(null);
     }
+
 }
