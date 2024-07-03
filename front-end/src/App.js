@@ -12,6 +12,7 @@ import SveUcionice from './pages/SveUcionice';
 import TrazenjePoTerminu from './pages/TrazenjePoTerminu';
 import TrazenjePoUcionici from './pages/TrazenjePoUcionici';
 import MojeAktivnosti from './pages/MojeAktivnosti';
+import KreiranjeAktivnosti from './pages/KreiranjeAktivnosti';
 
 const ROLES = {
   'User': "USER",
@@ -36,6 +37,8 @@ function App() {
           <Route path="/trazenje-po-terminu" element={<TrazenjePoTerminu />} />
           <Route path="/trazenje-po-ucionici" element={<TrazenjePoUcionici />} />
           <Route path="/moje-aktivnosti" element={<MojeAktivnosti />} />
+          <Route path="/kreiranje-aktivnosti" element={<KreiranjeAktivnosti />} />
+          
         </Route>
 
 

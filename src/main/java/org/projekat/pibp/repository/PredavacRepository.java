@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface PredavacRepository extends JpaRepository<Predavac,Long> {
     Optional<Predavac> findByKorisnickoIme(String korisnickoIme);
     Boolean existsByKorisnickoIme(String korisnickoIme);
+    Optional<Predavac> findById(Long id);
 }
