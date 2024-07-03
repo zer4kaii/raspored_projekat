@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
     margin: 0;
@@ -18,12 +18,12 @@ body {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
-  padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem 0.5rem;
 }
 
 section {
@@ -55,19 +55,19 @@ input[type="email"],
 input[type="date"],
 button,
 textarea {
-  font-family: 'Nunito', sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
 }
 
 label,
 button {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 button {
-  padding: 0.5rem;
+    padding: 0.5rem;
 }
 
 .instructions {
@@ -130,4 +130,9 @@ table, th, td {
 
 th,td {
     padding: 0.25rem;
+}*/
+
+body {
+    background-color: #fafafa;
+    font: 700 16px 'Oswald', sans-serif;
 }

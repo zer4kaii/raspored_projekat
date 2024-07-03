@@ -1,0 +1,171 @@
+h2{
+    alignment-baseline: top;
+
+}
+
+.p-menu1{
+    height: 100%;
+
+}
+
+.menu1 a{
+    color: rgb(110,110,110);
+    text-decoration: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.p-menu1{
+    max-width: 11rem;
+}
+
+.logo {
+    position: relative;
+    z-index: 120;
+}
+
+
+
+.hamburger1 {
+    height: 45px;
+    margin: 10px;
+    display: -ms-grid;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    z-index: 120;
+}
+
+.hamburger1 div {
+    background-color: rgb(110,110,110);
+    position: relative;
+    width: 40px;
+    height: 5px;
+    margin-top: 7px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#toggle1 {
+    display: none;
+}
+
+#toggle1:checked + .hamburger1 .top {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    margin-top: 22.5px;
+}
+
+#toggle1:checked + .hamburger1 .meat {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: -5px;
+}
+
+#toggle1:checked + .hamburger1 .bottom {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+#toggle1:checked ~ .menu1 {
+    height: max-content;
+}
+
+.menu1 {
+    width: 100%;
+    background-color: rgb(210,210,210);
+    margin: 0;
+    display: -ms-grid;
+    display: grid;
+    grid-template-rows: 1fr repeat(4, 0.5fr);
+    grid-row-gap: 25px;
+    padding: 0;
+    list-style: none;
+    clear: both;
+    width: auto;
+    text-align: center;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.4s ease;
+    z-index: 120;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.menu1 a:first-child {
+    margin-top: 40px;
+}
+
+.menu1 a:last-child {
+    padding-bottom: 20px;
+}
+
+.menu1 a:hover {
+    background-color: #2392d5;
+    color: #fafafa;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+table, th  {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: lightblue;
+}
+
+th,td {
+    padding: 0.7rem;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+.fullnavbar{
+    display: flex;
+    justify-content: space-between;
+
+}
+.username123 {
+    align-content: center;
+    min-width: 60%;
+}
+
+.logoutbutton1 {
+    align-content: center;
+}
+
+.tabela1{
+    display: flex;
+    flex-direction: column;
+}
+
+.tabela1 h2{
+    text-align: center;
+}
+
+.controlpanel{
+    text-align: right;
+    margin: 1.5rem;
+    padding: 0.5rem;
+}
+
+.controlpanel a{
+    text-decoration: none;
+    color: #010101;
+    margin: 2rem 0rem;
+    padding: 0.5rem;
+    border: 2px solid #002242;
+    border-radius: 10px;
+}
+
+.controlpanel a:hover{
+    background-color: #2392d5;
+    color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
