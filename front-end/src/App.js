@@ -13,6 +13,7 @@ import TrazenjePoTerminu from './pages/TrazenjePoTerminu';
 import TrazenjePoUcionici from './pages/TrazenjePoUcionici';
 import MojeAktivnosti from './pages/MojeAktivnosti';
 import KreiranjeAktivnosti from './pages/KreiranjeAktivnosti';
+import MojiTermini from './pages/MojiTermini';
 
 const ROLES = {
   'User': "USER",
@@ -35,8 +36,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sve-ucionice" element={<SveUcionice />} />
           <Route path="/trazenje-po-terminu" element={<TrazenjePoTerminu />} />
-          <Route path="/trazenje-po-ucionici" element={<TrazenjePoUcionici />} />
+          {/* <Route path="/trazenje-po-ucionici" element={<TrazenjePoUcionici />} /> */}
           <Route path="/moje-aktivnosti" element={<MojeAktivnosti />} />
+          <Route path="/moji-termini" element={<MojiTermini />} />
           <Route path="/kreiranje-aktivnosti" element={<KreiranjeAktivnosti />} />
           
         </Route>

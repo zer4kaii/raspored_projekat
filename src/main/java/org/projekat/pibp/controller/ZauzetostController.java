@@ -1,6 +1,7 @@
 package org.projekat.pibp.controller;
 
 
+import org.projekat.pibp.dto.ZauzetostDTO;
 import org.projekat.pibp.model.Zauzetost;
 import org.projekat.pibp.model.id.ZauzetostId;
 import org.projekat.pibp.service.ZauzetostService;
@@ -22,8 +23,9 @@ public class ZauzetostController {
     }
 
     @PostMapping("/dodaj")
-    public ResponseEntity<Zauzetost> dodajZauzetost(@RequestBody Zauzetost zauzetost) {
-        Zauzetost novaZauzetost = zauzetostService.dodajZauzetost(zauzetost);
+    public ResponseEntity<Zauzetost> dodajZauzetost(@RequestBody ZauzetostDTO zauzetostData) {
+        Zauzetost novaZauzetost = zauzetostService.dodajZauzetost(zauzetostData);
+        
         return new ResponseEntity<>(novaZauzetost, HttpStatus.CREATED);
     }
 

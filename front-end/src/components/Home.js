@@ -30,8 +30,9 @@ const Home = () => {
                 <Link to="/linkpage">Idite na stranicu sa linkovima</Link>
                 <Link to="/sve-ucionice">Sve ucionice</Link>
                 <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
-                <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
+                {/* <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link> */}
                 <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+                <Link to="/moji-termini">Moji termini</Link>
                 <div className="flexGrow">
                     <h2 onClick={logout}>Sign Out</h2>
                 </div>

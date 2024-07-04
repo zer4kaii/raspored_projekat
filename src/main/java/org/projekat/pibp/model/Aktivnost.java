@@ -13,7 +13,8 @@ import lombok.Setter;
 public class Aktivnost {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "aktivnost_seq")
+    @SequenceGenerator(name = "aktivnost_seq", sequenceName = "aktivnost_seq", allocationSize = 1)
     @Column(name = "id_aktivnosti")
     private Long idAktivnosti;
 

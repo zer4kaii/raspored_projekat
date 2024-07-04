@@ -1,5 +1,6 @@
 package org.projekat.pibp.controller;
 
+import org.projekat.pibp.dto.AktivnostDTO;
 import org.projekat.pibp.model.Aktivnost;
 import org.projekat.pibp.service.AktivnostService;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,8 @@ public class AktivnostController {
     }
 
     @PostMapping("/dodaj")
-    public ResponseEntity<Aktivnost> dodajAktivnost(@RequestBody Aktivnost aktivnost) {
-        Aktivnost novaAktivnost = aktivnostService.dodajAktivnost(aktivnost);
+    public ResponseEntity<Aktivnost> dodajAktivnost(@RequestBody AktivnostDTO aktivnostData) {
+        Aktivnost novaAktivnost = aktivnostService.dodajAktivnost(aktivnostData);
         return new ResponseEntity<>(novaAktivnost, HttpStatus.CREATED);
     }
 
