@@ -1,0 +1,125 @@
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-overlay {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: #b11017;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.text-overlay h1:after{
+    font-size: 60px;
+    animation: abomination1 10s linear infinite;
+    animation-fill-mode: forwards;
+    content: "";
+}
+
+@keyframes abomination1 {
+    0% {
+        content: "D";
+    }
+    7% {
+        content: "DO";
+    }
+    14% {
+        content: "DOB";
+    }
+    21% {
+        content: "DOBB";
+    }
+    28% {
+        content: "DOB";
+    }
+    35% {
+        content: "DOBR";
+    }
+    42% {
+        content: "DOBRO";
+    }
+    49% {
+        content: "DOBROD";
+    }
+    56% {
+        content: "DOBRODD";
+    }
+    63% {
+        content: "DOBROD";
+    }
+    70% {
+        content: "DOBRODO";
+    }
+    77% {
+        content: "DOBRODOS";
+    }
+    84% {
+        content: "DOBRODOSL";
+    }
+    92% {
+        content: "DOBRODOSLI";
+    }
+    100% {
+        content: "DOBRODOSLI!";
+    }
+}
+
+.homemenu{
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.homemenu a {
+    background-color: #b11017;
+    color: #fafafa;
+    text-decoration: none;
+    min-width: 400px;
+    text-align: center;
+    margin: 0.6rem 0;
+    padding: 0.7rem;
+    border: 3px solid #010101;
+    border-radius: 10px;
+}
+
+.homemenu a:hover{
+    color: #010101;
+    background-color: #b11017;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.25s ease;
+    transform: scale(1.1);
+}
+
+.flexGrow h2{
+    background-color: #b11017;
+    color: #fafafa;
+    text-decoration: none;
+    min-width: 200px;
+    text-align: center;
+    margin: 0.6rem 0;
+    padding: 0.7rem;
+    border: 3px solid #010101;
+    border-radius: 10px;
+}
+
+.flexGrow h2:hover {
+    color: #010101;
+    background-color: #b11017;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.25s ease;
+    transform: scale(1.1);
+}

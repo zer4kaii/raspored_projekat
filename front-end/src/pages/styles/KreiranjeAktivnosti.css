@@ -1,0 +1,21 @@
+.kreiranjeaktivnosti1 h1{
+    text-align: center;
+}
+
+.kreiranjeaktivnosti1 li{
+    text-align: left;
+    font-size: 20px;
+    padding: 1rem;
+}
+
+.kreiranjeaktivnosti1 input {
+    border: 2px solid #010101;
+    border-radius: 10px;
+    height: 2rem;
+    margin-left:1rem;
+}
+
+.kreiranjeaktivnosti1 h4{
+    text-align: center;
+    font-style: italic;
+}

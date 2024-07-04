@@ -1,31 +1,25 @@
 h2{
     alignment-baseline: top;
-
 }
 
 .p-menu1{
     height: 100%;
-
+    width: 14rem;
+    color:#010101;
 }
 
 .menu1 a{
-    color: rgb(110,110,110);
+    color: #010101;;
     text-decoration: none;
     width: 100%;
     margin: 0;
     padding: 10px 0;
 }
 
-.p-menu1{
-    max-width: 11rem;
-}
-
 .logo {
     position: relative;
     z-index: 120;
 }
-
-
 
 .hamburger1 {
     height: 45px;
@@ -38,7 +32,7 @@ h2{
 }
 
 .hamburger1 div {
-    background-color: rgb(110,110,110);
+    background-color: #010101;
     position: relative;
     width: 40px;
     height: 5px;
@@ -53,18 +47,21 @@ h2{
 
 #toggle1:checked + .hamburger1 .top {
     -webkit-transform: rotate(-45deg);
+    background-color: #b11017;
     transform: rotate(-45deg);
     margin-top: 22.5px;
 }
 
 #toggle1:checked + .hamburger1 .meat {
     -webkit-transform: rotate(45deg);
+    background-color: #b11017;
     transform: rotate(45deg);
     margin-top: -5px;
 }
 
 #toggle1:checked + .hamburger1 .bottom {
     -webkit-transform: scale(0);
+    background-color: #b11017;
     transform: scale(0);
 }
 
@@ -73,36 +70,35 @@ h2{
 }
 
 .menu1 {
+    background-color: #d8898d;
     width: 100%;
-    background-color: rgb(210,210,210);
-    margin: 0;
+    margin: 0px;
     display: -ms-grid;
     display: grid;
-    grid-template-rows: 1fr repeat(4, 0.5fr);
-    grid-row-gap: 25px;
-    padding: 0;
+    grid-template-rows: 1fr repeat(5, 0.5fr);
+    grid-row-gap: 1rem;
     list-style: none;
     clear: both;
-    width: auto;
     text-align: center;
     height: 0px;
     overflow: hidden;
     transition: height 0.4s ease;
     z-index: 120;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.3s ease;
 }
 
 .menu1 a:first-child {
-    margin-top: 40px;
+    margin-top: 20px;
+    align-content: center;
 }
 
 .menu1 a:last-child {
     padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .menu1 a:hover {
-    background-color: #2392d5;
+    background-color: #b11017;
     color: #fafafa;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -111,18 +107,27 @@ h2{
 table, th  {
     border: 2px solid black;
     border-collapse: collapse;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 th{
-    background-color: lightblue;
+    background-color: #b11017;
+    color: #fafafa;
 }
 
 th,td {
     padding: 0.7rem;
+    text-align: center;
+    border: 1px solid #010101 ;
 }
 
 tr:nth-child(even) {
-    background-color: lightblue;
+    background-color: #d8898d;
+}
+
+tr:nth-child(odd) {
+    background-color: #fafafa;
 }
 
 .fullnavbar{
@@ -133,6 +138,9 @@ tr:nth-child(even) {
 .username123 {
     align-content: center;
     min-width: 60%;
+    background-color: #fafafa;
+    color: #b11017;
+
 }
 
 .logoutbutton1 {
@@ -159,12 +167,56 @@ tr:nth-child(even) {
     color: #010101;
     margin: 2rem 0rem;
     padding: 0.5rem;
-    border: 2px solid #002242;
+    border: 2px solid #010101;
     border-radius: 10px;
 }
 
 .controlpanel a:hover{
-    background-color: #2392d5;
+    background-color: #b11017;
+    color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.ucionicapage{
+    display: flex;
+    justify-content: space-around;
+}
+
+.podelaekrana{
+    min-width: 80%;
+    border: 3px solid #010101;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 20px;
+    background-color: #fafafa;
+}
+
+.skuptabela{
+    border: 3px solid #010101;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 20px;
+    background-color: #fafafa;
+}
+
+.logoff{
+    align-content: center;
+    background-color: #fafafa;
+    color: #b11017;
+}
+
+.logoutbutton1 h2{
+    align-content: center;
+    background-color: #fafafa;
+    color: #010101;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 10px ;
+}
+
+.logoutbutton1 h2:hover{
+    background-color: #b11017;
     color: #fafafa;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;

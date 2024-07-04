@@ -1,0 +1,31 @@
+.ucionicapage{
+    display: flex;
+    justify-content: space-around;
+}
+
+.termintabela h1{
+    text-align: center;
+}
+
+.termintabela h3{
+    text-align: left;
+}
+
+.termintabela li{
+    padding: 1rem;
+}
+
+.termintabela input {
+    border: 2px solid #010101;
+    border-radius: 10px;
+    height: 2rem;
+    margin-left:1rem;
+}
+
+.ucioniceTabela{
+    width: 100%;
+}
+
+.naslovtermin1{
+    text-align: center;
+}

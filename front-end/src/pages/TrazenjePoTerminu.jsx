@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import usePrivateGet from "../hooks/usePrivateGet";
+import {Link, useNavigate} from "react-router-dom";
+import AuthContext from "../context/AuthProvider";
+import "./styles/TrazenjePoTerminu.css"
 
 const TrazenjePoTerminu = () => {
   const [zauzetosti, setZauzetosti] = useState([]);
@@ -10,7 +13,6 @@ const TrazenjePoTerminu = () => {
   // data.id.vremeOd
   // data.vremeDo
   const zauzetostiData = usePrivateGet("/zauzetosti/sve");
-
   const [ucionice, setUcionice] = useState([]);
   const ucioniceData = usePrivateGet("/ucionice/sve");
   const [zauzeteUcionice, setZauzeteUcionice] = useState();
@@ -76,60 +78,126 @@ const TrazenjePoTerminu = () => {
     });
   }, [vremeOd, vremeDo, datum]);
 
+  const { setAuth,auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    // if used in more components, this should be in context
+    // axios to /logout endpoint
+    setAuth({});
+    navigate('/linkpage');
+  }
+
   return (
     <>
-      <h3>Unesite termin</h3>
-      <label>U koliko sati počinje?</label>
-      <input
-        type="text"
-        onChange={onVremeOdChange}
-        value={vremeOd}
-        placeholder="napisie samo broj 0-23"
-      ></input>
-      <label>Koliko casova traje?</label>
-      <input
-        type="text"
-        onChange={onTrajanjeChange}
-        value={trajanje}
-        placeholder="Broj casova"
-      ></input>
-      <label>Datum termina</label>
-      <input
-        type="date"
-        onChange={onDatumChange}
-        value={datum}
-        placeholder="datum"
-      ></input>
-      <br />
+      <div className="ucionicapage">
+        <section className="p-menu1">
+          <nav id="navbar" className="navigation" role="navigation">
+            <input id="toggle1" type="checkbox"/>
+            <label className="hamburger1" htmlFor="toggle1">
+              <div className="top"></div>
+              <div className="meat"></div>
+              <div className="bottom"></div>
+            </label>
 
-      <h2>Slobodne ucionice u datom terminu</h2>
-      <table className="ucioniceTabela">
-        <thead>
-          <tr>
-            <th>Broj</th>
+            <nav className="menu1">
+              <Link to="/">Pocetna</Link>
+              <Link to="/admin">Admin</Link>
+              <Link to="/sve-ucionice">Ucionice</Link>
+              <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+              <Link to="/trazenje-po-terminu">Pretraga po terminima</Link>
+              <Link to="/trazenje-po-ucionici">Pretraga po ucionicama</Link>
 
-            <th>Tip</th>
+            </nav>
+          </nav>
+        </section>
+        <div className="podelaekrana">
+          <div className="fullnavbar">
+            <div className="logo">
+              <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="Logo"/>
+            </div>
 
-            <th>Kapacitet za kolokvijum</th>
+            <div className="username123">
+              <h2>Dobrodosli, {auth.korisnicko_ime}! </h2>
+            </div>
 
-            <th>Kapacitet za predavanje</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ucionice
-            ?.filter((ucionica) => !zauzeteUcionice.includes(ucionica.broj))
-            .map((ucionica) => {
-              return (
-                <tr key={ucionica.broj}>
-                  <td>{ucionica.broj}</td>
-                  <td>{ucionica.naziv}</td>
-                  <td>{ucionica.kapK}</td>
-                  <td>{ucionica.kapS}</td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+            <div className="logoff">
+              <h2>Izlogujte se ovde => </h2>
+            </div>
+
+            <div className="logoutbutton1">
+              <h2 onClick={logout}>Sign Out</h2>
+            </div>
+
+          </div>
+          <div className="termintabela">
+            <h1>Unesite termin</h1>
+            <h2>Filtriranje</h2>
+            <ul>
+              <li><label>U koliko sati počinje?</label>
+                <input
+                    type="text"
+                    onChange={onVremeOdChange}
+                    value={vremeOd}
+                    placeholder="napisite samo broj 0-23"
+                ></input>
+              </li>
+
+              <li>
+                <label>Koliko casova traje?</label>
+                <input
+                    type="text"
+                    onChange={onTrajanjeChange}
+                    value={trajanje}
+                    placeholder="Broj casova"
+                ></input>
+              </li>
+
+              <li>
+                <label>Datum termina</label>
+                <input
+                    type="date"
+                    onChange={onDatumChange}
+                    value={datum}
+                    placeholder="datum"
+                ></input>
+              </li>
+            </ul>
+
+            <h2 className="naslovtermin1">Slobodne ucionice u datom terminu</h2>
+            <table className="ucioniceTabela">
+              <thead>
+              <tr>
+                <th>Broj</th>
+
+                <th>Tip</th>
+
+                <th>Kapacitet za kolokvijum</th>
+
+                <th>Kapacitet za predavanje</th>
+              </tr>
+              </thead>
+              <tbody>
+              {ucionice
+                  ?.filter((ucionica) => !zauzeteUcionice.includes(ucionica.broj))
+                  .map((ucionica) => {
+                    return (
+                        <tr key={ucionica.broj}>
+                          <td>{ucionica.broj}</td>
+                          <td>{ucionica.naziv}</td>
+                          <td>{ucionica.kapK}</td>
+                          <td>{ucionica.kapS}</td>
+                        </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+            <div className="controlpanel">
+              <Link to='/'>Nazad na kontrolnu tablu</Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

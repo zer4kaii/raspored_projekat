@@ -1,6 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import AuthContext from "../context/AuthProvider";
+import './Home.css';
 
 const Home = () => {
     const { setAuth } = useContext(AuthContext);
@@ -15,23 +16,25 @@ const Home = () => {
 
     return (
         <section>
-            <h1>Home</h1>
-            <br />
-            <p>You are logged in!</p>
-            <br />
-            <Link to="/admin">Idite na admin stranicu</Link>
-            <br />
-            <Link to="/linkpage">Idite na stranicu sa linkovima</Link>
-            <br />
-            <Link to="/sve-ucionice">Sve ucionice</Link>
-            <br />
-            <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
-            <br />
-            <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
-            <br />
-            <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
-            <div className="flexGrow">
-                <button onClick={logout}>Sign Out</button>
+            <div className="background-container">
+                <div className="picture1">
+                    <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="logo"/>
+                </div>
+                <div className="text-overlay">
+                    <img src={process.env.PUBLIC_URL + "/img/fax.jpg"} alt="fax"/>
+                    <h1></h1>
+                </div>
+            </div>
+            <div className="homemenu">
+                <Link to="/admin">Idite na admin stranicu</Link>
+                <Link to="/linkpage">Idite na stranicu sa linkovima</Link>
+                <Link to="/sve-ucionice">Sve ucionice</Link>
+                <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
+                <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
+                <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+                <div className="flexGrow">
+                    <h2 onClick={logout}>Sign Out</h2>
+                </div>
             </div>
         </section>
     )
