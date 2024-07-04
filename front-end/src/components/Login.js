@@ -1,6 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import './Login.css';
 
 import axios from '../api/axios';
 const LOGIN_URL = '/auth/login';
@@ -65,36 +66,50 @@ const Login = () => {
     return (
 
         <section>
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <input
-                    type="text"
-                    id="username"
-                    ref={userRef}
-                    autoComplete="off"
-                    onChange={(e) => setUser(e.target.value)}
-                    value={korisnicko_ime}
-                    required
-                />
+            <div className="wholepage">
+                <div className="loginforma">
+                    <div className="logo">
+                        <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="Logo"/>
+                    </div>
+                    <h1>Sign In</h1>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="forma1">
+                            <h3><label htmlFor="username">Username:</label></h3>
+                            <input
+                                type="text"
+                                id="username"
+                                ref={userRef}
+                                autoComplete="off"
+                                onChange={(e) => setUser(e.target.value)}
+                                value={korisnicko_ime}
+                                required
+                            />
+                        </div>
 
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    onChange={(e) => setPwd(e.target.value)}
-                    value={sifra}
-                    required
-                />
-                <button>Sign In</button>
-            </form>
-            <p>
-                Need an Account?<br />
-                <span className="line">
-                    <Link to="/register">Sign Up</Link>
-                </span>
-            </p>
+                        <div className="forma2">
+                            <h3><label htmlFor="password">Password: </label></h3>
+                            <input
+                                type="password"
+                                id="password"
+                                onChange={(e) => setPwd(e.target.value)}
+                                value={sifra}
+                                required
+                            />
+                        </div>
+                        <div className="signindugme">
+                            <button>Sign In</button>
+                        </div>
+                    </form>
+                    <br/>
+                    <p>
+                        Need an Account?
+                    </p>
+                    <div className="logindugme">
+                        <Link to="/register">Sign Up</Link>
+                    </div>
+                </div>
+            </div>
         </section>
 
     )

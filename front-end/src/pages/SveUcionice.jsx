@@ -37,12 +37,12 @@ const SveUcionice = () => {
 
                       <nav className="menu1">
                           <Link to="/">Pocetna</Link>
-                          <Link to="/admin">Admin</Link>
-                          <Link to="/sve-ucionice">Ucionice</Link>
+                          <Link to="/admin">Admin stranica</Link>
+                          <Link to="/linkpage">Stranica sa linkovima</Link>
+                          <Link to="/sve-ucionice">Sve ucionice</Link>
+                          <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
+                          <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
                           <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
-                          <Link to="/trazenje-po-terminu">Pretraga po terminima</Link>
-                          <Link to="/trazenje-po-ucionici">Pretraga po ucionicama</Link>
-
                       </nav>
                   </nav>
               </section>

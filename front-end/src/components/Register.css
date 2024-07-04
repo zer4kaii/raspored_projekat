@@ -1,0 +1,77 @@
+.registerpage{
+    display: grid;
+    place-items: center;
+}
+
+.celastrana{
+    background-color: #b11017;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 3rem 2rem;
+    border-radius: 50px;
+    border:5px solid #010101;
+    color: #fafafa;
+    width: 30%;
+}
+
+.registerr h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+.regform{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.regform label {
+    margin: 0.5rem 0;
+}
+
+.regform input {
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.regform button{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #010101;
+    border: 2px solid #010101;
+    padding: 0.7rem 3rem;
+    background-color: #fafafa;
+    border-radius: 15px;
+    max-width: 50%;
+    align-self: center;
+}
+
+.regform button:hover{
+    background-color: #010101;
+    border: 2px solid #fafafa;
+    color: #fafafa;
+}
+
+.registerpage p {
+    text-align: center;
+}
+
+.signinfix a{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #010101;
+    border: 2px solid #010101;
+    padding: 0.7rem 3rem;
+    background-color: #fafafa;
+    border-radius: 15px;
+}
+
+.signinfix a:hover {
+    background-color: #010101;
+    border: 2px solid #fafafa;
+    color: #fafafa;
+}

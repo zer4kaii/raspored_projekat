@@ -78,9 +78,7 @@ const KreiranjeAktivnosti = () => {
                     <ul>
                         <li>
                             <label>
-                                Predavac aktivnosti:
-                                <br/>
-                                {predavac?.ime} {predavac?.prezime}
+                                Predavac aktivnosti: {predavac?.ime} {predavac?.prezime}
                             </label>
                         </li>
 
