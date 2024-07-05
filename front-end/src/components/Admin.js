@@ -19,6 +19,12 @@ const Admin = () => {
     const [predmetiNaSmeru, setpredmetiNaSmeru] = useState([]);
     const predmetiNaSmeruData = usePrivateGet('/predmeti_na_smeru/svi');
 
+    const [predavaci, setPredavaci] = useState([]);
+    const predavaciData = usePrivateGet('/predavaci/svi');
+
+    const [aktivnosti, setAktivnosti] = useState([]);
+    const aktivnostiData = usePrivateGet('/aktivnosti/sve');
+
     useEffect(()=>{
         setUcionice(ucioniceData);
     },[ucioniceData])
@@ -34,6 +40,14 @@ const Admin = () => {
     useEffect(()=>{
         setpredmetiNaSmeru(predmetiNaSmeruData);
     },[predmetiNaSmeruData])
+
+    useEffect(()=>{
+        setPredavaci(predavaciData);
+    },[predavaciData])
+
+    useEffect(()=>{
+        setAktivnosti(aktivnostiData);
+    },[aktivnostiData])
 
     useEffect(() => {
         console.log('predmetiNaSmeruData:', predmetiNaSmeruData);
@@ -216,8 +230,68 @@ const Admin = () => {
                                 </tbody>
                             </table>
 
+                            <h2>Spisak svih predavaca</h2>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Id predavaca:
+                                    </th>
+                                    <th>
+                                        Ime:
+                                    </th>
+                                    <th>
+                                        Prezime:
+                                    </th>
+                                    <th>
+                                        Titula:
+                                    </th>
+                                    <th>
+                                        Korisnicko ime:
+                                    </th>
+                                    <th>
+                                        Lozinka:
+                                    </th>
+                                    <th>
+                                        E-mail:
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {predavaci?.map(predavac => {
+                                    return (
+                                        <tr key={predavac.id}>
+                                            <td>
+                                                {predavac.id}
+                                            </td>
+                                            <td>
+                                                {predavac.ime}
+                                            </td>
+                                            <td>
+                                                {predavac.prezime}
+                                            </td>
+                                            <td>
+                                                {predavac.titula}
+                                            </td>
+                                            <td>
+                                                {predavac.korisnickoIme}
+                                            </td>
+                                            <td>
+                                                {predavac.sifra}
+                                            </td>
+                                            <td>
+                                                {predavac.email}
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                                </tbody>
+                            </table>
+
+                            
+
                             <h2>Spisak svih ucionica</h2>
-                            <table className='ucioniceTabela'>
+                            <table>
                                 <thead>
                                 <tr>
                                     <th>
