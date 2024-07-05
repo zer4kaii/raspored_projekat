@@ -62,6 +62,8 @@
     background-color: #010101;
     border: 2px solid #fafafa;
     color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .stisnidugme{
@@ -87,4 +89,6 @@
     background-color: #010101;
     border: 2px solid #fafafa;
     color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
 }

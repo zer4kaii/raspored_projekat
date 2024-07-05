@@ -1,9 +1,9 @@
-.linksekcija{
+.missingsection{
     display: grid;
     place-items: center;
 }
 
-.linkstrana{
+.missingstrana{
     background-color: #b11017;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,16 @@
     width: 30%;
 }
 
-.linkstrana a{
+.missingstrana h1{
+    font-size: 40px;
+}
+
+.missingstrana p{
+    margin-bottom: 2rem;
+}
+
+.flexGrow a{
     font-size: 16px;
-    width: 50%;
     font-weight: bold;
     text-decoration: none;
     color: #010101;
@@ -26,11 +33,10 @@
     padding: 0.7rem 3rem;
     background-color: #fafafa;
     border-radius: 15px;
-    margin: 0.7rem 0;
     text-align: center;
 }
 
-.linkstrana a:hover{
+.flexGrow a:hover{
     background-color: #010101;
     border: 2px solid #fafafa;
     color: #fafafa;

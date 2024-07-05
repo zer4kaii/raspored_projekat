@@ -1,0 +1,34 @@
+.aktivnostidiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.akt123 h2{
+    text-align: center;
+}
+
+.akt123 table{
+    width: 100%;
+}
+
+.kreirajaktivnost{
+    display: flex;
+    justify-content: right;
+    margin-top: 2rem;
+}
+
+.kreirajaktivnost a{
+    text-decoration: none;
+    background-color: #fafafa;
+    color: #010101;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 10px ;
+}
+
+.kreirajaktivnost a:hover{
+    background-color: #b11017;
+    color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}

@@ -1,0 +1,32 @@
+.mojitermini h2{
+    text-align: center;
+}
+
+.mojitermini table{
+    width: 100%;
+}
+
+.trazter{
+    display: flex;
+    justify-content: right;
+    margin-top: 1rem;
+}
+
+.mojitermini a{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #010101;
+    border: 2px solid #010101;
+    padding: 0.7rem 2rem;
+    background-color: #fafafa;
+    border-radius: 15px;
+}
+
+.mojitermini a:hover {
+    background-color: #b11017;
+    border: 2px solid #010101;
+    color: #fafafa;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}

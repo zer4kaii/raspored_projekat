@@ -132,8 +132,12 @@ const TrazenjePoTerminu = () => {
   if (data) {
     return (
         <>
-        <h2>Uspesno zakazan termin za vasu aktivnost!</h2>
-        <Link to="/moji-termini">Pogledaj moje termine</Link>
+          <div className="uspesnotermin">
+            <div className="termin1">
+              <h2>Uspesno zakazan termin za vasu aktivnost!</h2>
+              <Link to="/moji-termini">Pogledaj moje termine</Link>
+            </div>
+        </div>
         </>
     )
   }
@@ -155,8 +159,8 @@ const TrazenjePoTerminu = () => {
                 <Link to="/linkpage">Stranica sa linkovima</Link>
                 <Link to="/sve-ucionice">Sve ucionice</Link>
                 <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
-                <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
                 <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+                <Link to="/moji-termini">Moji termini</Link>
               </nav>
             </nav>
           </section>
@@ -164,8 +168,8 @@ const TrazenjePoTerminu = () => {
             <div className="fullnavbar">
               <div className="logo">
                 <img
-                  src={process.env.PUBLIC_URL + "/img/logo.png"}
-                  alt="Logo"
+                    src={process.env.PUBLIC_URL + "/img/logo.png"}
+                    alt="Logo"
                 />
               </div>
 
@@ -215,7 +219,7 @@ const TrazenjePoTerminu = () => {
                   ></input>
                 </li>
               </ul>
-              <h2>Izaberite jednu od vasih aktivnosti</h2>
+              <h2>Izaberite jednu od vasih aktivnosti:</h2>
               <input
                     className="form-control"
                     type="text"
@@ -278,7 +282,7 @@ const TrazenjePoTerminu = () => {
                 </tbody>
               </table>
               <div className="controlpanel">
-                <Link to="/">Nazad na kontrolnu tablu</Link>
+                <Link to="/moji-termini">Pregledaj zakazane aktivnosti</Link>
               </div>
             </div>
           </div>

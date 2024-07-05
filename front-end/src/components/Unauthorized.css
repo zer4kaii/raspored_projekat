@@ -1,9 +1,9 @@
-.linksekcija{
+.unauthorizedsection{
     display: grid;
     place-items: center;
 }
 
-.linkstrana{
+.unauthorizedstrana{
     background-color: #b11017;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,12 @@
     width: 30%;
 }
 
-.linkstrana a{
+.unauthorizedstrana h1{
+    font-size: 40px;
+}
+
+.unauthorizedstrana button{
     font-size: 16px;
-    width: 50%;
     font-weight: bold;
     text-decoration: none;
     color: #010101;
@@ -30,7 +33,7 @@
     text-align: center;
 }
 
-.linkstrana a:hover{
+.unauthorizedstrana button:hover{
     background-color: #010101;
     border: 2px solid #fafafa;
     color: #fafafa;

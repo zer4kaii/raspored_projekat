@@ -41,8 +41,8 @@ const SveUcionice = () => {
                           <Link to="/linkpage">Stranica sa linkovima</Link>
                           <Link to="/sve-ucionice">Sve ucionice</Link>
                           <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
-                          <Link to="/trazenje-po-ucionici">Trazenje po ucionici</Link>
                           <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+                          <Link to="/moji-termini">Moji termini</Link>
                       </nav>
                   </nav>
               </section>

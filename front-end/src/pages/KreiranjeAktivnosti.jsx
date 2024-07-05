@@ -65,9 +65,11 @@ const KreiranjeAktivnosti = () => {
   };
   if (data) {
     return (
-      <div>
-        <p>Uspešno kreirana aktivnost!</p>
-        <Link to="/moje-aktivnosti">Pogledaj moje aktivnosti</Link>
+      <div className="uspesnaaktivnost">
+        <div className="puspesnokreiranaaktivnost">
+          <p>Uspešno kreirana aktivnost!</p>
+          <Link to="/moje-aktivnosti">Pogledaj moje aktivnosti</Link>
+        </div>
       </div>
     );
   }
@@ -85,18 +87,19 @@ const KreiranjeAktivnosti = () => {
 
             <nav className="menu1">
               <Link to="/">Pocetna</Link>
-              <Link to="/admin">Admin</Link>
-              <Link to="/sve-ucionice">Ucionice</Link>
+              <Link to="/admin">Admin stranica</Link>
+              <Link to="/linkpage">Stranica sa linkovima</Link>
+              <Link to="/sve-ucionice">Sve ucionice</Link>
+              <Link to="/trazenje-po-terminu">Trazenje po terminu</Link>
               <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
-              <Link to="/trazenje-po-terminu">Pretraga po terminima</Link>
-              <Link to="/trazenje-po-ucionici">Pretraga po ucionicama</Link>
+              <Link to="/moji-termini">Moji termini</Link>
             </nav>
           </nav>
         </section>
         <div className="podelaekrana">
           <div className="fullnavbar">
             <div className="logo">
-              <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="Logo" />
+              <img src={process.env.PUBLIC_URL + "/img/logo.png"} alt="Logo"/>
             </div>
 
             <div className="username123">
@@ -124,11 +127,11 @@ const KreiranjeAktivnosti = () => {
                 <li>
                   <label htmlFor="naziv">Naziv aktivnosti:</label>
                   <input
-                    type="text"
-                    id="naziv"
-                    name="naziv"
-                    value={novaAktivnost.naziv}
-                    onChange={handleChange}
+                      type="text"
+                      id="naziv"
+                      name="naziv"
+                      value={novaAktivnost.naziv}
+                      onChange={handleChange}
                   />
                 </li>
 
@@ -137,23 +140,23 @@ const KreiranjeAktivnosti = () => {
                     Predmet:
                   </label>
                   <input
-                    className="form-control"
-                    type="text"
-                    list="datalistOptions"
-                    id="predmet_id"
-                    name="predmet_id"
-                    value={novaAktivnost.predmet_id}
-                    onChange={handleChange}
-                    placeholder="Type to search..."
+                      className="form-control"
+                      type="text"
+                      list="datalistOptions"
+                      id="predmet_id"
+                      name="predmet_id"
+                      value={novaAktivnost.predmet_id}
+                      onChange={handleChange}
+                      placeholder="Type to search..."
                   />
                   <datalist id="datalistOptions">
                     {predmeti?.map((predmet) => (
-                      <option
-                        key={predmet.idPredmeta}
-                        value={predmet.idPredmeta}
-                      >
-                        {predmet.nazivPredmeta}
-                      </option>
+                        <option
+                            key={predmet.idPredmeta}
+                            value={predmet.idPredmeta}
+                        >
+                          {predmet.nazivPredmeta}
+                        </option>
                     ))}
                   </datalist>
                 </li>
@@ -163,50 +166,53 @@ const KreiranjeAktivnosti = () => {
                     Tip aktivnosti:
                   </label>
                   <input
-                    className="form-control"
-                    type="text"
-                    list="datalistOptions2"
-                    id="tip_aktivnosti"
-                    name="tip_aktivnosti"
-                    value={novaAktivnost.tip_aktivnosti}
-                    onChange={handleChange}
-                    placeholder="Type to search..."
+                      className="form-control"
+                      type="text"
+                      list="datalistOptions2"
+                      id="tip_aktivnosti"
+                      name="tip_aktivnosti"
+                      value={novaAktivnost.tip_aktivnosti}
+                      onChange={handleChange}
+                      placeholder="Type to search..."
                   />
                   <datalist id="datalistOptions2">
-                    <option value="Konsultacije" />
-                    <option value="Nadoknada" />
+                    <option value="Konsultacije"/>
+                    <option value="Nadoknada"/>
                   </datalist>
                 </li>
 
                 <li>
                   <label htmlFor="broj_studenata">Broj studenata:</label>
                   <input
-                    type="text"
-                    id="broj_studenata"
-                    name="broj_studenata"
-                    value={novaAktivnost.broj_studenata}
-                    onChange={handleChange}
+                      type="text"
+                      id="broj_studenata"
+                      name="broj_studenata"
+                      value={novaAktivnost.broj_studenata}
+                      onChange={handleChange}
                   />
                 </li>
 
                 <li>
                   <label htmlFor="trajanje">Trajanje:</label>
                   <input
-                    type="text"
-                    id="trajanje"
-                    name="trajanje"
-                    value={novaAktivnost.trajanje}
-                    onChange={handleChange}
+                      type="text"
+                      id="trajanje"
+                      name="trajanje"
+                      value={novaAktivnost.trajanje}
+                      onChange={handleChange}
                   />
                 </li>
               </ul>
               {loading && <p>Slanje zahteva...</p>}
               {error && (
-                <p>Greška prilikom kreiranja aktivnosti: {error.message}</p>
+                  <p>Greška prilikom kreiranja aktivnosti: {error.message}</p>
               )}
-              <button type="submit" disabled={!isFormValid()}>
-                Kreiraj Aktivnost
-              </button>
+              <div className="butfix">
+                <button type="submit" disabled={!isFormValid()}>
+                  Kreiraj Aktivnost
+                </button>
+                <Link to="/moje-aktivnosti">Moje aktivnosti</Link>
+              </div>
               <h4>
                 Napomena: Predavac moze da kreira samo neredovnu aktivnost.
               </h4>
