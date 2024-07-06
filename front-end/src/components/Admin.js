@@ -25,6 +25,10 @@ const Admin = () => {
     const [aktivnosti, setAktivnosti] = useState([]);
     const aktivnostiData = usePrivateGet('/aktivnosti/sve');
 
+    
+    const [zauzetosti, setZauzetosti] = useState([]);
+    const zauzetostiData = usePrivateGet('/zauzetosti/sve');
+
     useEffect(()=>{
         setUcionice(ucioniceData);
     },[ucioniceData])
@@ -32,6 +36,12 @@ const Admin = () => {
     useEffect(()=>{
         setPredmeti(predmetiData);
     },[predmetiData])
+
+    
+
+    useEffect(()=>{
+        setZauzetosti(zauzetostiData);
+    },[zauzetostiData])
 
     useEffect(()=>{
         setSmerovi(smeroviData);
@@ -74,14 +84,6 @@ const Admin = () => {
 
     return (
         <>
-        <section>
-            <h1>Admins Page</h1>
-            <br />
-            <p>You must have been assigned an Admin role.</p>
-            <div className="flexGrow">
-                <Link to="/">Home</Link>
-            </div>
-        </section>
 
             <div className="ucionicapage">
                 <section className="p-menu1">
@@ -115,7 +117,7 @@ const Admin = () => {
                         </div>
 
                         <div className="logoff">
-                            <h2>Izlogujte se ovde => </h2>
+                            <h2>Izlogujte se ovde =&gt; </h2>
                         </div>
 
                         <div className="logoutbutton1">
@@ -201,10 +203,10 @@ const Admin = () => {
                                 <thead>
                                 <tr>
                                     <th>
-                                        Id smera:
+                                        Naziv smera:
                                     </th>
                                     <th>
-                                        Id predmeta:
+                                        Naziv predmeta:
                                     </th>
                                     <th>
                                         Izborni/Obavezan:
@@ -214,12 +216,12 @@ const Admin = () => {
                                 <tbody>
                                 {predmetiNaSmeru?.map(pns => {
                                     return (
-                                        <tr key={pns.id.idS}>
+                                        <tr key={pns.id.idS+pns.id.idP*3.15}>
                                             <td>
-                                                {pns.idS}
+                                                {pns.predmet.nazivPredmeta}
                                             </td>
                                             <td>
-                                                {pns.idP}
+                                                {pns.smer.nazivSmera}
                                             </td>
                                             <td>
                                                 {pns.tip}
@@ -330,7 +332,102 @@ const Admin = () => {
                                 })}
                                 </tbody>
                             </table>
+                            <h2>Spisak svih aktivnosti</h2>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
 
+                                    <th>
+                                        Ime predavaca
+                                    </th>
+
+                                    <th>
+                                        Naziv predmeta
+                                    </th>
+                                    <th>
+                                        Tip aktivnosti
+                                    </th>
+                                    <th>
+                                        Broj studenata
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {aktivnosti?.map(aktivnost => {
+                                    return <tr key={aktivnost.idAktivnosti*3.13}>
+                                        <td>
+                                            {aktivnost.idAktivnosti}
+                                        </td>
+                                        <td>
+                                            {aktivnost.predavac.ime} {aktivnost.predavac.prezime}
+                                        </td>
+                                        <td>
+                                            {aktivnost.predmet.nazivPredmeta}
+                                        </td>
+                                        <td>
+                                            {aktivnost.tipAktivnosti}
+                                        </td>
+                                        <td>
+                                            {aktivnost.broj_studenata}
+                                        </td>
+                                    </tr>
+                                })}
+                                </tbody>
+                            </table>
+                            <h2>Spisak svih zauzetosti</h2>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>
+                                        ID aktivnosti
+                                    </th>
+
+                                    <th>
+                                        Naziv aktivnosti
+                                    </th>
+
+                                    <th>
+                                        Datum
+                                    </th>
+                                    <th>
+                                        Vreme od
+                                    </th>
+                                    <th>
+                                        Vreme do
+                                    </th>
+                                    <th>
+                                        Broj ucionice
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {zauzetosti?.map(zauzetost => {
+                                    return <tr key={zauzetost.id.vremeOd*3.13}>
+                                        <td>
+                                            {zauzetost.aktivnost.idAktivnosti}
+                                        </td>
+                                        <td>
+                                            {zauzetost.aktivnost.naziv}
+                                        </td>
+                                        <td>
+                                            {formatDate(zauzetost.id.datum)}
+                                        </td>
+                                        <td>
+                                            {zauzetost.id.vremeOd}
+                                        </td>
+                                        <td>
+                                            {zauzetost.vremeDo}
+                                        </td>
+                                        <td>
+                                            {zauzetost.id.brUc}
+                                        </td>
+                                    </tr>
+                                })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
